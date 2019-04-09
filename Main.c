@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main()
 {
- char b[] = "dfg hjk";
- int k = 1;
+ char b[] = "abcedfg";
+ int k = 0;
  
  int index;
  
@@ -10,8 +10,9 @@ int main()
      if(b[index] == 32)
      {
      }
-     else{
-         
+     else if (b[index] > 90)
+     {
+      b[index] = b[index] - 32;   
 
     b[index] = b[index] - k;  
 }
