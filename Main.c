@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
- char b[] = "NAKNJCJBJCSakjkhkchjcb^^&&^%%$#@";
+ char b[] = "JACOB";
  int k = 1;
  
  int index;
