@@ -1,25 +1,35 @@
 #include <stdio.h>
-char enc(char b[], int k);
+char EncK(char message[], int key); 
 int main()
 {
-    char message[] = "JACOB";
-    int key =  1;
-enc(message, key);
-return 0;
+    char message[] = "aAbBcC";
+    int key =  100;
+    EncK(message, key);
 }
  
- char enc(char b[], int k)
- {
- int index;
- for(index = 0; b[index] !=0; index++){
-     if(( b[index] < 65) || (b[index] > 90 && b[index] < 97) || (b[index] > 122)) {
+char EncK(char message[], int key)
+{
+     printf("Inputted message was: %s\n", message);
+     int index = 0;
+     for(index = 0; message[index] != 0; index++)
+     {
+         if(message[index] >= 97 && message[index] <= 122)
+         {
+             message[index] = message[index] - 32;
+         }
+     }
+     for(index = 0; message[index] !=0; index++)
+     {
+         if(( message[index] < 65) || (message[index] > 90 && message[index] < 97) || (message[index] > 122))
+         {
        //do nothing to any punctuation  
-     }
-     else{
-         b[index] = ((b[index] - 65) + k ) % 26 + 65;
-     }
+         }
+         else
+         {
+             message[index] = ((message[index] - 65) + key ) % 26 + 65;
+         }
          
- }
- printf("encrypted message is %s\n", b);
- return 0;
+     }
+     printf("Your encrypted message is: %s\n", message);
+     return 0;
 }
