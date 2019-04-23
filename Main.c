@@ -2,8 +2,8 @@
 void EncK(char message[], int key); //Function Prototype for the Function EncK (Encyption for K)
 int main()
 {
-    char message[] = "aAbBcC"; //This is the inputted message that will be Encrypted
-    int key =  25; 
+    char message[] = "wWxXyY"; //This is the inputted message that will be Encrypted
+    int key =  100; 
     /* key is the key for the encryption.
     This key dictates the movement of every letter in the Rotation Cipher Encryption.
     For Example; if the key is 1 every letter moves 1 space.
@@ -13,7 +13,7 @@ int main()
     
 }
 
-/* The inputs for this functions are a char and an int.
+/* The function EncK encrypts a message using a rotation cipher
 The char (character) input is the message to be encrypted in English Letter that can be upper or lower case.
 The int (interger) input is the key and is the amount of spaces each letter rotates.
 The return value is void as this function does not return a value but rather prints the new encrypted message.
