@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include"Head.h"
+
 void EncK(char message[], int key); //Function Prototype for the Function EncK (Encyption for K)
 int main()
 {
