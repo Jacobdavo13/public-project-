@@ -12,28 +12,61 @@ int main()
     char SubKey[1024];
     int RotKey;
     int ChoiceNumber;
+    int ChoiceNumber2;
+    REPEAT:
+    {
+        //Brings the function to the top again to repeat
+    }
+    
     printf("Choose what Function you want to perfrom: \n ENTER 1: ENCRYPTION BY ROTATION \n ENTER 2: DECRYPTION FROM ROTATION \n ENTER 3: ENCRYPTION BY SUBSTITUTION \n ENTER 4: DECRYPTION FROM SUBSTITUTION \n");
-    scanf("%d\n", &ChoiceNumber);
+    scanf("%d", &ChoiceNumber);
     switch(ChoiceNumber)
     {
         case 1:
-        printf("Enter in a message to be encrypted:");
-        scanf("%s\n", &InputMessage);
-        printf("Now enter a Key for Rotation");
-        scanf("%d\n", &RotKey);
+        printf("Enter in a message to be encrypted: \n");
+        scanf("%s", &InputMessage);
+        printf("Now enter a key for rotation: \n");
+        scanf("%d", &RotKey);
         EncK(InputMessage, RotKey);
-        break;
+        goto ProgramEnd;
         case 2:
-        //DecK
-        break;
+        printf("Enter in a message to be decrypted:  \n");
+        scanf("%s", &InputMessage);
+        printf("Now enter the key used in the rotation encryption  \n");
+        scanf("%d", &RotKey);
+        DecK(InputMessage, RotKey);
+        goto ProgramEnd;
         case 3:
-        //EncS
-        break;
+        printf("Enter in a message to be encrypted:  \n");
+        scanf("%s", &InputMessage);
+        printf("Enter in a new substitution 'alphabet' to encrypt to (enter all 26 letters in any order without repeating):  \n");
+        scanf("%s", &SubKey);
+        EncS(InputMessage, SubKey);
+        goto ProgramEnd;
         case 4:
-        //DecS
-        break;
+        printf("Enter in a message to be decrypted:  \n");
+        scanf("%s", &InputMessage);
+        printf("Enter in the substitution key used for encryption:  \n");
+        scanf("%s", &SubKey);
+        DecS(InputMessage, SubKey);
+        goto ProgramEnd;
+        default:
+        printf("Invalid Input  \n");
+        goto REPEAT;
+    }
+    ProgramEnd:
+    {
+        printf("Do you want to repeat this program?  \n ENTER 1: REPEATS PROGRAM  \n ENTER ANY OTHER NUMBER: ENDS PROGRAM \n");
+        scanf("%d", &ChoiceNumber2);
+        if(ChoiceNumber2 == 1)
+        {
+            goto REPEAT;
+        }
+        else
+        {
+            //end programm
+        }
+        printf("Program Ended  :) \n");
+        return 0;   
     }
 }
-
-
-
