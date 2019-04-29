@@ -25,35 +25,35 @@ int main()
     {
         case 1: //occurs if number 1 is chosen
         printf("Enter in a message to be encrypted: \n");
-        scanf("%s", &InputMessage); //scans in message to be encrypted
+        scanf("%[^\n]s", &InputMessage); //scans in message to be encrypted
         printf("Now enter a key for rotation: \n"); 
         scanf("%d", &RotKey); //scans in key to be used to encrypt
         EncK(InputMessage, RotKey); //performs the function Enck using the message and key and prints the encrypted message
         goto ProgramEnd; //goes to the end of the program
         case 2:
         printf("Enter in a message to be decrypted:  \n");
-        scanf("%s", &InputMessage);
+        scanf("%[^\n]s", &InputMessage);
         printf("Now enter the key used in the rotation encryption  \n");
         scanf("%d", &RotKey);
         DecK(InputMessage, RotKey); //perfroms the function DecK
         goto ProgramEnd;
         case 3:
         printf("Enter in a message to be encrypted:  \n");
-        scanf("%s", &InputMessage);
+        scanf("%[^\n]s", &InputMessage);
         printf("Enter in a new substitution 'alphabet' to encrypt to (enter all 26 letters in any order without repeating):  \n");
-        scanf("%s", &SubKey);
+        scanf("%[^\n]s", &SubKey);
         EncS(InputMessage, SubKey);
         goto ProgramEnd;
         case 4:
         printf("Enter in a message to be decrypted:  \n");
-        scanf("%s", &InputMessage);
+        scanf("%[^\n]s", &InputMessage);
         printf("Enter in the substitution key used for encryption:  \n");
-        scanf("%s", &SubKey);
+        scanf("%[^\n]s", &SubKey);
         DecS(InputMessage, SubKey);
         goto ProgramEnd;
         case 5:
         printf("Enter in a message to be decrypted:");
-        scanf("%s", &InputMessage);
+        scanf("%[^\n]s", &InputMessage);
         DecMinusK(InputMessage);
         goto ProgramEnd;
         default:
