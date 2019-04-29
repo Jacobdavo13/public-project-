@@ -360,9 +360,6 @@ void DecS(char message[], char key[]) //function definition
     printf("The Decrypted Message is:  %s\n", message); //prints the decrypted message
 }
 
-
-
-
 void DecMinusK(char message[])
 {
     char message2[1028]; //message2 used if original decryption is incorrect. It saves the original encrypted message so it can be decrypted a second time
@@ -481,12 +478,11 @@ void DecMinusK(char message[])
     goto final; //skips over the PrintForA statement as it was incorrect decryption. Jumps over it to the end so that it does not occur
     PrintForA: //occurs if decryption for A was correct and prints the decrypted message
     {
-        printf("decrypted using A: %s\n", message); //prints decrypted message
+        printf("Decrypted using A: %s\n", message); //prints decrypted message
     }
     final: //used to skip over PrintForA if decryption using A was incorrect. Does nothing
     {
         //nothing    
     }
 }
-  
 #endif
