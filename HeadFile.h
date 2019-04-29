@@ -16,7 +16,7 @@ Eg. If key = -1 then B=A and if key = 25 B=A.
 Punctiation and other symbols are not encrypted, only letters.
 Lowercase letters are transformed into upper case letter.
  */
-void EncK(char message[], int key) //Function definition
+void EncK(char* message, int key) //Function definition
 {
      printf("Inputted message was: %s\n", message); //This prints the original message so it can be reviewed
      int index; //declares a varibale index that will be used as the pointer for the message array to point at individual letters.
@@ -59,7 +59,7 @@ This function takes an encrypted message and the rotation key used for encryptio
 This means that if the enecryption key used was 1 then the letter B decrypted would be A
 This function does not have any data type restrictions but string length is limited to how much the computer/website can take without crashing
  */
-void DecK(char message[], int key) 
+void DecK(char* message, int key) 
 {
     printf("Inputted message was: %s\n", message);
     if(key>26) //used if key is too large which will create ASCII charaters that are not letters
@@ -100,7 +100,7 @@ This means that if the first letter of the key is Z, every A will be encrypted i
 This function has a return value of void as it prints the encrypted message instead of returning it
 This function will not encrypt symbols or numbers and only encrypts lower and upper case letters, and will also only produce upper case letter outputs
  */
-void EncS(char message[], char key[])
+void EncS(char* message, char* key)
 {  
     printf("message was: %s\n", message); //prints original message for review
     int index; //intialised interger to be used as pointer through message array
@@ -206,7 +206,7 @@ The char key[] input is the substitution alphabet that was used to encrypt the o
 The return value is void as it does not return a value but rather prints the decrypted message
 String length is limited only by the computer and websites processing power and only letters are decrypted 
 */
-void DecS(char message[], char key[]) //function definition
+void DecS(char* message, char* key) //function definition
 {
     int index; //initalises a pointer to be used to cycle through message array
     char let[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //initalises an alphabet array used to decrypt the message back to its original value
@@ -360,7 +360,7 @@ void DecS(char message[], char key[]) //function definition
     printf("The Decrypted Message is:  %s\n", message); //prints the decrypted message
 }
 
-void DecMinusK(char message[])
+void DecMinusK(char* message)
 {
     char message2[1028]; //message2 used if original decryption is incorrect. It saves the original encrypted message so it can be decrypted a second time
     int key; //interger used to determine the key of the rotation
