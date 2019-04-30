@@ -1,16 +1,46 @@
 #include <stdio.h>
 #include"HeadFile.h" //includes the file that contains the functions listed below/their function definitions
+/*This code scans in messages and keys through scanf.
+Using the terminal enter "cd /projects/p" and then hit the tab button followed by enter.
+Then in the terminal enter "ls" and hit enter
+Then in the terminal enter "./a" and hit the tab button followed by enter
+This will start the program and it can then be run on the terminal and values can be scanned in.
+If you want to encrypt a message using a rotation cipher 1 must be entered.
+This will prompt the user to enter the message to be encrypted followed by the key for rotation
+This will then print the encrypted message to the screen
+If you want to decrypt an encrypted message encrypted with a known rotation cipher 2 must be entered
+This will prompt the user to enter the encrypted message followed by key used for encryption
+This will then print the decryted/original message to the screen
+If you want to encrypt a message using a substitiution cipher 3 must be entered.
+This will prompt you to enter a message for encryption followed by a new 26 letter alphabet, you must ensure you enter 26 letters with no repeating letters
+This will then transfrom every corresponding letter of the alphabet into the keys alphabet.
+eg Alphabet =  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+               ||||||||||||||||||||||||||
+   Key      =  QWERTYUIOPASDFGHJKLZXCVBNM
+   So, A goes to Q, B goes to W....
+This will then print the encrypted message to the screen
+If you want to decrypt a message encrypted with a known substitution cipher 4 must be entered.
+This will prompt you to enter the encrypted message followed by the 26 letter key.
+This will then use the key to transform every letter back into its original letter before encryption
+This will then print the decrypted message to the screen.
+If you want to decrypt a message encrypted with an unknown rotation cipher 5 must be entered.
+This will prompt you to enter the encrypted message. Using the assumption that every single letter word is an A or I it will decrypt the message
+This will then print Decrypted for A and the decrypted message if A was used to find the key or print Decrypted for I and the decrypted message if I was used to find the key.
+After a function is finished entering 1 will go back to the start so another message can be entered and processed.
+Any other character or symbol here will end the program
+This program will automatically convert any enter lower case letters into upper case letters and does not decrypt/encrypt symbols or punctuation
+ */
 
 void EncK(char* message, int key); //Function Prototype for the Function EncK (Encyption for K Rotation)
 /*This function is used to encrypt a given message using a rotation cipher. This means that every letter rotates a certain defined amount of places
 This function takes a message and a key for number of places rotated and ecnrypts a message.
 For example, if the key was 1 and the message was "ABC", the encrypted message would come out as "BCD".
- */
+*/
 void DecK(char* message, int key); //Function Prototype for the Function DecK (Decryption for K Rotation)
 /*This function is used to decrypt a message that has been encrypted using a rotation cipher.
 It takes the inputted message and the key used for encryption and moves the letters back to their original places and produces the original message
 For example, if the key used was 1 and the message encrypted is "BCD" then the decrypted message comes out as "ABC" 
- */
+*/
 void EncS(char* message, char* key); //Function Prototype for the Function EncS(Encryption for Substitution)
 /*This function is used to encrypt a given message using a substitution cipher. Substitution means that every letter becomes another letter without doubling up.
 This means if A goes to H then nothing else can go to H and every A in the message is turned into a H. This is done for every letter in the message.
@@ -27,7 +57,7 @@ If it detects that a single letter word is not A or I than it re-decrypts the or
 */
 int main()
 {
-    char InputMessage[1024];//char to be used as the message input
+    char InputMessage[4024];//char to be used as the message input
     char SubKey[100]; //char to be used as the key input for substitution cipher
     int RotKey; //int used as the roation key for rotation cipher
     int ChoiceNumber; //number used to determine what function will be performed

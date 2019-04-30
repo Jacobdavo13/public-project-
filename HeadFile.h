@@ -111,6 +111,13 @@ void EncS(char* message, char* key)
             message[index] = message[index] - 32; // -32 sets lower case letters into upper case letters
         }
     }
+    for(index = 0; key[index] != 0; index++) //cycles through the key 
+    {
+        if(key[index] >= 97 && key[index] <= 122) //if any letters in the key are lower case
+        {
+            key[index] = key[index] - 32; //conversion to upper case
+        }
+    }
     for(index = 0; message[index] != 0; index++) //for loop to cycle through message again now that it is all upper case letters
     {   
         switch (message[index]) //switch case to change the letters to the alphabet of the key, 
@@ -216,6 +223,13 @@ void DecS(char* message, char* key) //function definition
         if(message[index] >= 97 && message[index] <= 122) //if loop that occurs if the charaters are lower case
         {
             message[index] = message[index] - 32; // -32 changes from upper to lower case
+        }
+    }
+    for(index = 0; key[index] != 0; index++) //cycles through key
+    {
+        if(key[index] >= 97 && key[index] <= 122) // detects lower case
+        {
+            key[index] = key[index] - 32; //conversion to upper case
         }
     }
     for(index = 0; message[index] != 0; index++) //cycles through new fully upper case message until the end
@@ -359,6 +373,13 @@ void DecS(char* message, char* key) //function definition
     }
     printf("The Decrypted Message is:  %s\n", message); //prints the decrypted message
 }
+
+/* The function DecMinusK (Decryption for Rotation Without the key) decrypts an encrypted message encrypted with a rotation cipher, without the key used for encryption
+The input for this function is a char message and is the encrypted message
+This function has a void return value as it prints the decrypted message rather than output it
+This function uses the assumption that all single letter words are either A or I and finds the key based on the first single letter word being A and error checks this later
+The data type restrictions are that only letter will be decrypted and only upper case letters will be output as lower case letters will be converted into upper case letters
+*/
 
 void DecMinusK(char* message)
 {
